@@ -21,6 +21,74 @@
     </div>
   </div>
 </template>
+
+<script>
+import Pagination from '@/components/Pagination.vue'
+   export default {
+    components:{
+      Pagination
+    },
+  name: 'EducationTheory',
+  data(){
+    return {
+      list: [],
+      total: 0,
+      pagination:{}
+    }
+  },
+  methods: {
+    /**
+     * 跳转到书法理论界面
+     * @param {理论文章编号} id 
+     */
+    theoryDetail(id) {
+      this.$router.push({
+        name: 'theoryDetail',
+        params: {
+          id: id.ID
+        }
+      })
+    },
+    async getPageList(){
+      let res = await this.$axios({
+        url:'/api/api/theory/theory',
+        method:'get',
+        params:this.pagination
+      })
+      if (res.status == 200){
+        this.list = []
+        console.log(res.data.data.results)
+        for(let item of res.data.data.results) {
+          this.list.push(item)
+        }
+        this.total = res.data.data.page.total
+      }
+        
+    }
+  },
+  created(){
+      let that = this
+         this.$axios.get("http://101.43.39.188:10000/api/theory/theory?limit=10&page=1")
+        .then(function (response) {
+          if (response.status == 200){
+            console.log(response.data.data.results)
+            let res =[];
+            // that.list = response.data.data.results
+            for(var item of response.data.data.results) {
+              res.push(item)
+            }
+            that.list = res
+            that.total = response.data.data.page.total
+            console.log("that.total: ", that.total)
+          }
+        })
+        .catch(function (error) {
+          console.log(error);
+        });
+  },
+}
+</script>
+
 <style>
   .root{
     /* width: 100vw; */
@@ -111,53 +179,3 @@
     color: #767676;
   }
 </style>
-<script>
-import axios from 'axios'
-import Pagination from '@/components/Pagination.vue'
-   export default {
-    components:{
-      Pagination
-    },
-  name: 'EducationTheory',
-  data(){
-    return {
-      list: [],
-      total: 0
-    }
-  },
-  methods: {
-    /**
-     * 跳转到书法理论界面
-     * @param {理论文章编号} id 
-     */
-    theoryDetail(id) {
-      this.$router.push({
-        name: 'theoryDetail',
-        params: {
-          id: id.ID
-        }
-      })
-    }
-  },
-  created(){
-      let that = this
-         axios.get("http://101.43.39.188:10000/api/theory/theory?limit=10&page=1")
-        .then(function (response) {
-          if (response.status == 200){
-            console.log(response.data.data.results)
-            let res =[];
-            // that.list = response.data.data.results
-            for(var item of response.data.data.results) {
-              res.push(item)
-            }
-            that.list = res
-            that.total = response.data.data.page.total
-            console.log("that.total: ", that.total)
-          }
-        })
-        .catch(function (error) {
-          console.log(error);
-        });
-  },
-}
-</script>
