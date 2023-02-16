@@ -21,6 +21,8 @@ app.use(router)
   locale: zhCn,
  }).mount('#app')
  
+
+
 if (process.env.NODE_ENV == 'development') {
  app.config.devtools = true;
 } else {

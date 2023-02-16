@@ -56,8 +56,6 @@
 
 <script>
 
-import router from '../../router'
-import * as VueRouter from 'vue-router';
 import { mapMutations } from "vuex";
 import "./style.css";
 

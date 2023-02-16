@@ -12,15 +12,10 @@
         </div>
         <div class="detail-box">
           <div class="detail">
-            <el-icon :size="18" :color="'#000'">
-              <Timer />
-            </el-icon>
             <div class="info">{{ item.time }}</div>
           </div>
           <div class="detail">
-            <el-icon :size="18" :color="'#000'">
-              <DeleteLocation />
-            </el-icon>
+       
             <div class="info">{{ item.time }}</div>
           </div>
         </div>

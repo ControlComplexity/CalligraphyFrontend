@@ -51,11 +51,11 @@ const routes = [
     name: 'communicate',
     component: () => import(/* webpackChunkName: "about" */ '../views/Communicate.vue')
   },
-  // {
-  //   path: '/about',
-  //   name: 'about',
-  //   component: () => import(/* webpackChunkName: "about" */ '../views/AboutView.vue')
-  // }
+  {
+    path: '/video',
+    name: 'video',
+    component: () => import(/* webpackChunkName: "about" */ '../views/Video.vue')
+  },
   {
     name: 'theoryDetail', // 命名路由
     path: '/theory_detail/:id', // 动态二级路由
