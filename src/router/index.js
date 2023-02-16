@@ -2,6 +2,7 @@ import { createRouter, createWebHistory  } from 'vue-router'
 import HomeView from '../views/HomeView.vue'
 import TheoryDetail from '@/components/TheoryDetail.vue'
 import Admin from '@/components/Admin/index.vue'
+import Login from '@/components/Login/index.vue'
 const routes = [
   {
     path: '/',
@@ -64,6 +65,11 @@ const routes = [
     name: 'admin', // 命名路由
     path: '/admin', // 动态二级路由
     component: Admin
+  },
+  {
+    name: 'login', // 命名路由
+    path: '/login', // 动态二级路由
+    component: Login
   }
 ]
 
