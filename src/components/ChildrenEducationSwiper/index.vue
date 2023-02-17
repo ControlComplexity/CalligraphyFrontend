@@ -76,7 +76,7 @@
   };
   export default MySwiper
 </script>
-<style>
+<style scoped>
 .root{
   width: 100vw;
   display: flex;

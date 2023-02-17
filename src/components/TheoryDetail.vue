@@ -12,7 +12,7 @@
 </div>
 </div>
  </template>
- <style>
+ <style scoped>
  .contentContainer{
   display:flex;
   justify-content:center;

@@ -1,4 +1,4 @@
-let data = [
+let dynasty = [
     {
         id: 0,
         name: '夏商周',

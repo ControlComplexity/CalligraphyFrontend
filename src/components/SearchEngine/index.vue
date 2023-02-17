@@ -1,7 +1,7 @@
 <template><div>
 <div id="app">
-    <input type="text" v-model="city" @keyup.enter="getWeather">
-    <button @click="getWeather">点击查询</button>
+    <input type="text" v-model="keyword" @keyup.enter="search">
+    <button @click="search">点击查询</button>
 </div>
 <div>
  <div>
@@ -16,16 +16,34 @@
 </div></div>
 </template>
 <script>
+import axios from 'axios'
 
 export default {
     data(){
         return{
-            city: "",
+            keyword: "",
         }
     },
     methods:{
-        getWeather(){
-     console.log(this.city)
+        search(){
+            let that = this
+            console.log(that.keyword)
+                axios.get("http://101.43.39.188:10000/api/theory/theory?title=" + that.keyword).
+                then(function(response){
+                    if (response.status == 200){
+                        console.log(response.data.data.results)
+                        let res =[];
+                        for(var item of response.data.data.results) {
+                        res.push(item)
+                        }
+                        that.list = res
+                        that.total = response.data.data.page.total
+                        console.log("that.total: ", that.total)
+                 }
+                }).
+                catch(function (error) {
+                console.log(error);
+            });
             }
         }
 }

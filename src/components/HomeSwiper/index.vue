@@ -10,7 +10,7 @@
       class="mySwiper"
     >
     <swiper-slide v-for="(item, index) in list" :key="index">
-      <slide-item :slideItem="item"></slide-item>
+      <!-- <slide-item :slideItem="item"></slide-item> -->
     <img :src="item.URL" />
     </swiper-slide>
     </swiper>
@@ -25,8 +25,7 @@
   import "swiper/css/effect-fade";
   import "swiper/css/navigation";
   import "swiper/css/pagination";
-  
-  import "./style.css";
+
   import axios from 'axios'
   // import required modules
   import { EffectFade, Navigation, Pagination } from "swiper";
@@ -48,7 +47,7 @@
           if (response.status == 200){
             console.log(response.data.data.results)
             let res =[];
-            // that.list = response.data.data.results
+            that.list = response.data.data.results
             for(var item of response.data.data.results) {
               res.push(item)
             }
@@ -66,4 +65,35 @@
     },
   };
   </script>
-  
+  <style scoped>
+#app { height: 100% }
+html,
+body {
+  position: relative;
+  height: 100%;
+}
+
+body {
+  font-family: Helvetica Neue, Helvetica, Arial, sans-serif;
+  font-size: 14px;
+  color: #000;
+  margin: 0;
+  padding: 0;
+}
+
+.swiper {
+  width: 100%;
+  height: 100%;
+}
+
+.swiper-slide {
+  background-position: center;
+  background-size: cover;
+}
+
+.swiper-slide img {
+  display: block;
+  width: 100%;
+}
+
+</style>

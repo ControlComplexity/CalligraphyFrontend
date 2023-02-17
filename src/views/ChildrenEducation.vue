@@ -3,11 +3,14 @@
 </template>
 
 <script>
-import MySwiper from '@/components/mySwiper/index.vue'
+import MySwiper from '@/components/ChildrenEducationSwiper/index.vue'
 export default{
+    components:{
+        MySwiper
+    },
     setup(){
         return{
-            modules: [MySwiper],
+            
         }
     }
 }

@@ -23,7 +23,7 @@ export default {
 };
 </script>
 
-<style>
+<style scoped>
 .pagination_center {
   width: 100%;
   text-align: center;

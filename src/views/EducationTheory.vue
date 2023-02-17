@@ -18,10 +18,10 @@
       </div>
     </div>
     <div class="pagination">
-      <Pagi :total="total" ></Pagi>
+      <Pagi :total="total" v-if="pagiShow" ></Pagi>
     </div></div>
   </div>
-  <div class="artists">书法教育理论
+  <div v-if="pagiShow" class="artists">书法教育理论
       汉代
       唐
       宋
@@ -41,6 +41,7 @@ import Pagi from '@/components/Pagination.vue'
   name: 'EducationTheory',
   data(){
     return {
+      pagiShow:false,
       list: [],
       total: 0,
       pagination:{}
@@ -66,6 +67,7 @@ import Pagi from '@/components/Pagination.vue'
         params:this.pagination
       })
       if (res.status == 200){
+     
         this.list = []
         console.log(res.data.data.results)
         for(let item of res.data.data.results) {
@@ -78,9 +80,11 @@ import Pagi from '@/components/Pagination.vue'
   },
   created(){
       let that = this
-         this.$axios.get("http://101.43.39.188:10000/api/theory/theory?limit=10&page=1")
+         this.$axios.get("/interface/api/theory/theory?limit=10&page=1")
         .then(function (response) {
           if (response.status == 200){
+            that.pagiShow = true
+            console.log("that.pagiShow: ",that.pagiShow)
             console.log(response.data.data.results)
             let res =[];
             // that.list = response.data.data.results
@@ -99,7 +103,7 @@ import Pagi from '@/components/Pagination.vue'
 }
 </script>
 
-<style>
+<style scoped>
   .root{
     width: 70vw;
     display: flex;

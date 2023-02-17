@@ -57,7 +57,6 @@
 <script>
 
 import { mapMutations } from "vuex";
-import "./style.css";
 
 export default {
   name: "Login",
@@ -100,3 +99,49 @@ export default {
   },
 };
 </script>
+<style scoped>
+.login {
+    width: 100vw;
+    padding: 0;
+    margin: 0;
+    height: 100vh;
+    font-size: 16px;
+    background-position: left top;
+    background-color: #242645;
+    color: #fff;
+    font-family: "Source Sans Pro";
+    position: relative;
+  }
+ 
+  .mylogin {
+    width: 240px;
+    height: 280px;
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    margin: auto;
+    padding: 50px 40px 40px 40px;
+    box-shadow: -15px 15px 15px rgba(6, 17, 47, 0.7);
+    opacity: 1;
+    background: linear-gradient(
+      230deg,
+      rgba(53, 57, 74, 0) 0%,
+      rgb(0, 0, 0) 100%
+    );
+  }
+ 
+  .inps input {
+    border: none;
+    color: rgb(32, 28, 28);
+    background-color: transparent;
+    font-size: 12px;
+  }
+ 
+  .submitBtn {
+    background-color: transparent;
+    color: #39f;
+    width: 200px;
+  }
+</style>

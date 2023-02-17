@@ -28,7 +28,6 @@
   
     import 'swiper/css/grid';
     import 'swiper/css/pagination';
-     import './activity.css'
   
     // import required modules
     import { Grid, Pagination } from 'swiper';
@@ -46,3 +45,41 @@
     };
   </script>
   
+<style scoped>
+#app {
+  height: 50%;
+}
+html,
+body {
+  position: relative;
+  height: 100%;
+}
+
+body {
+  font-family: Helvetica Neue, Helvetica, Arial, sans-serif;
+  font-size: 14px;
+  color: #000;
+  margin: 0;
+  padding: 0;
+}
+
+.swiper {
+  width: 100%;
+  height: 100%;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.swiper-slide {
+  text-align: center;
+  font-size: 18px;
+  background: #fff;
+  height: calc((100% - 30px) / 2) !important;
+
+  /* Center slide text vertically */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+</style>
