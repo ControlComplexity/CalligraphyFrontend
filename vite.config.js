@@ -42,10 +42,10 @@ export default defineConfig({
 		cors: true,
 		open: false,
 		proxy: {
-			'/api': {
-				target: 'http://101.43.39.188:10000/',
+			'/interface': {
+				target: 'http://101.43.39.188:10000',
 				changeOrigin: true,
-				rewrite: (path) => path.replace(/^\/api/, '')
+				rewrite: (path) => path.replace(/^\/interface/, '')
 			}
 		}
 	}

@@ -1,5 +1,6 @@
 <template>
-  <div class="root">
+  <div class="root"  style="float: left">
+    <div style="float: left ">
     <div class="theory">           
       <div :style="{height:item.Image.length==0?'70px':'110px'}" v-for="item in list">
         <div class="image" :style="{backgroundImage:`url(${item.Image})`,width:item.Image.length==0?'60px':'30%'}"  @click="theoryDetail(item)">
@@ -17,16 +18,25 @@
       </div>
     </div>
     <div class="pagination">
-      <Pagination :total="total" ></Pagination>
-    </div>
+      <Pagi :total="total" ></Pagi>
+    </div></div>
   </div>
+  <div class="artists">书法教育理论
+      汉代
+      唐
+      宋
+      清
+      近现代
+      当代
+      更多
+    </div>
 </template>
 
 <script>
-import Pagination from '@/components/Pagination.vue'
+import Pagi from '@/components/Pagination.vue'
    export default {
     components:{
-      Pagination
+      Pagi
     },
   name: 'EducationTheory',
   data(){
@@ -51,7 +61,7 @@ import Pagination from '@/components/Pagination.vue'
     },
     async getPageList(){
       let res = await this.$axios({
-        url:'/api/api/theory/theory',
+        url:'/interface/api/theory/theory',
         method:'get',
         params:this.pagination
       })
@@ -91,7 +101,7 @@ import Pagination from '@/components/Pagination.vue'
 
 <style>
   .root{
-    /* width: 100vw; */
+    width: 70vw;
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -125,7 +135,7 @@ import Pagination from '@/components/Pagination.vue'
   .theory>div{
     display:flex;
     align-items: center;
-    width: 100%;
+    width: 80%;
     height: 110px; 
     margin: 10px;
     overflow: hidden;
