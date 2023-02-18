@@ -13,9 +13,13 @@
     </div>
     <div style="width: 100%;height: 200px;">
       <swiper
+      :autoplay="{
+      delay: 2500,
+      disableOnInteraction: false,
+      }"
         :loop="true"
-        :slidesPerView="3"
-        :spaceBetween="30"
+        :slidesPerView="4"
+        :spaceBetween="20"
         :pagination="{
           clickable: true
         }"
@@ -35,8 +39,8 @@
 </template>
 <script>
   // Import Swiper Vue.js components
-  import { Swiper, SwiperSlide } from 'swiper/vue';
-
+  import {Swiper, SwiperSlide } from 'swiper/vue';
+  import { Autoplay} from 'swiper';
   // Import Swiper styles
   import 'swiper/css';
 
@@ -58,7 +62,7 @@
         var mySwiper = document.querySelector('.swiper').swiper
         switch(direction){
           case 'left':
-            mySwiper.slideNext()
+            mySwiper.slidePrev()
             break
           case 'right':
             mySwiper.slideNext()
@@ -68,7 +72,7 @@
         }
       }
       return {
-        modules: [Pagination],
+        modules: [Pagination, Autoplay],
         otherPage,
          // 视频播放器配置
       };
@@ -76,7 +80,7 @@
   };
   export default MySwiper
 </script>
-<style scoped>
+<style >
 .root{
   width: 100vw;
   display: flex;

@@ -9,7 +9,7 @@ const routes = [
     name: 'home',
     component: HomeView,
     meta:{
-      title:'首页'
+      title:'书法教育'
     }
   },
  
