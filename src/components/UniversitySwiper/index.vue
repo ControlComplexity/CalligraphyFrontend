@@ -76,13 +76,13 @@ body {
   background: #fff;
   height: calc((100% - 30px) / 2) !important;
 
-  /* Center slide text vertically */
+
   display: flex;
   justify-content: center;
   align-items: center;
 }
 
-.swiper {
+  .swiper {
     width: 100%;
     height: 30%;
   }

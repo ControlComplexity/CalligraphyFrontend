@@ -71,16 +71,13 @@
 #app { height: 100% }
 html,
 body {
-  position: relative;
-  height: 100%;
-}
-
-body {
   font-family: Helvetica Neue, Helvetica, Arial, sans-serif;
   font-size: 14px;
   color: #000;
   margin: 0;
   padding: 0;
+  position: relative;
+  height: 100%;
 }
 .top_link{
   width: 100%;
@@ -89,12 +86,13 @@ body {
 
 .swiper {
   width: 100%;
-  height: 100%;
+  height: auto;
 }
 
 .swiper-slide {
   background-position: center;
   background-size: cover;
+  height: 500px;
 }
 
 .swiper-slide img {
