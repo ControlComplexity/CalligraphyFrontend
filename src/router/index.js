@@ -23,18 +23,10 @@ const routes = [
     name: 'children',
     component: () => import(/* webpackChunkName: "about" */ '../views/ChildrenEducation.vue')
   },
-  // {
-  //   path: '/children',
-  //   name: 'Swiper',
-  //   // route level code-splitting
-  //   // this generates a separate chunk (about.[hash].js) for this route
-  //   // which is lazy-loaded when the route is visited.
-  //   component: () => import(/* webpackChunkName: "about" */ '../views/mySwiper/index.vue')
-  // },
   {
     path: '/university',
     name: 'university',
-    component: () => import(/* webpackChunkName: "about" */ '../views/activitySwiper/index.vue')
+    component: () => import(/* webpackChunkName: "about" */ '../views/UniversityEducation.vue')
   },
   {
     path: '/theory',
@@ -44,17 +36,12 @@ const routes = [
   {
     path: '/tech',
     name: 'tech',
-    component: () => import(/* webpackChunkName: "about" */ '../views/Tech.vue')
+    component: () => import(/* webpackChunkName: "about" */ '../views/TechnologyCalligraphy.vue')
   },
   {
     path: '/communicate',
     name: 'communicate',
     component: () => import(/* webpackChunkName: "about" */ '../views/Communicate.vue')
-  },
-  {
-    path: '/video',
-    name: 'video',
-    component: () => import(/* webpackChunkName: "about" */ '../views/Video.vue')
   },
   {
     name: 'theoryDetail', // 命名路由

@@ -10,8 +10,10 @@
       class="mySwiper"
     >
     <swiper-slide v-for="(item, index) in list" :key="index">
-      <!-- <slide-item :slideItem="item"></slide-item> -->
-    <img :src="item.URL" />
+     <div class="top_link" v-bind:style="{ 'background-image': 'url(' + item.URL + ')','background-repeat':'no-repeat','background-size':'cover' }" > 
+      <a href="http://localhost:3001/university">大学书法教育</a>
+    </div>
+    <!-- <img :src="item.URL"  /> -->
     </swiper-slide>
     </swiper>
   </template>
@@ -79,6 +81,10 @@ body {
   color: #000;
   margin: 0;
   padding: 0;
+}
+.top_link{
+  width: 100%;
+  height: 500px;
 }
 
 .swiper {

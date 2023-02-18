@@ -15,6 +15,11 @@
 <h1>青少年书法刊物</h1>
 </div>
 </div>
+<video width="1200" height="900" controls loop="loop" autoplay="autoplay" muted="muted" preload="metadata"
+   poster="http://101.43.39.188/image/calligraphy/carousel/carousel3.jpg">
+  <source src="https://v.cic.tsinghua.edu.cn/vod/video/2/8/421731.mp4" type="video/mp4">
+</video>
+
 <div class="training_institution_block">
     <h1>书法培训机构</h1>
 </div>
