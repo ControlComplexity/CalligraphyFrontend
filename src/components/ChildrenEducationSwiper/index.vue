@@ -28,11 +28,9 @@
         class="mySwiper"
         ref="mySwiper"
       >
-        <swiper-slide>Slide 1</swiper-slide>
-        <swiper-slide>Slide 2</swiper-slide><swiper-slide>Slide 3</swiper-slide>
-        <swiper-slide>Slide 4</swiper-slide><swiper-slide>Slide 5</swiper-slide>
-        <swiper-slide>Slide 6</swiper-slide><swiper-slide>Slide 7</swiper-slide>
-        <swiper-slide>Slide 8</swiper-slide><swiper-slide>Slide 9</swiper-slide>
+        <swiper-slide v-for="(item, index) in list" :key="index">
+          <div class = "big_logo"><img :src='item.URL'></div>
+        </swiper-slide>
       </swiper>
     </div>
   </div>
@@ -51,12 +49,36 @@
   // import required modules
   import { Pagination } from 'swiper';
   import 'video.js/dist/video-js.css'
+  import axios from 'axios';
   const MySwiper = {
+    data(){
+      return {
+      list: [],
+    }
+    },
     name: "MySwiper",
     components: {
       Swiper,
       SwiperSlide,
     },
+    created(){
+      let that = this
+         axios.get("http://101.43.39.188:10000/api/carousel/carousels")
+        .then(function (response) {
+          if (response.status == 200){
+            console.log(response.data.data.results)
+            let res =[];
+            that.list = response.data.data.results
+            for(var item of response.data.data.results) {
+              res.push(item)
+            }
+            that.list = res
+          }
+        })
+        .catch(function (error) {
+          console.log(error);
+        });
+  },
     setup() {
       const otherPage = (direction) => {
         var mySwiper = document.querySelector('.swiper').swiper

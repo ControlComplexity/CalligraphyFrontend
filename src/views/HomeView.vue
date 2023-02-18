@@ -205,7 +205,6 @@ a{
     height: 100%;
 }
 .home5 {
-    padding: calc(5vw + 95px) 0 5vw;
     background: #efebea;
 }
 
