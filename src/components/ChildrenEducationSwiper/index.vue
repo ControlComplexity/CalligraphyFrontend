@@ -84,9 +84,11 @@
         var mySwiper = document.querySelector('.swiper').swiper
         switch(direction){
           case 'left':
+            console.log('left')
             mySwiper.slidePrev()
             break
           case 'right':
+            console.log('right')
             mySwiper.slideNext()
             break
           default:
@@ -122,6 +124,7 @@
   display: flex;
   flex-direction: row;
   align-items: center;
+  user-select: none;
 }
 .prev,.next{
   font-size: 25px;
@@ -135,6 +138,9 @@
   background-color: #ffffff00;
   border: .5px solid rgb(99,17,174);
   margin: 0 5px;
+}
+.prev:hover,.next:hover{
+  cursor: pointer;
 }
 
 .swiper-pagination{

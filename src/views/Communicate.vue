@@ -1,5 +1,6 @@
 <template>
   <div class="_block">
+    <TopBackground :page="page"></TopBackground>
     <div class="media_block">
       <div class="media" v-for="(media,i) in mediaList" :key="i">
         <div class="image" :style="{backgroundImage:`url(${media.src})`}">
@@ -19,13 +20,17 @@
 /**
  *  交流与学习
  */
+ import TopBackground from '@/components/TopBackground/index.vue'
   export default {
-    name: 'Communicate',
+    components:{
+      TopBackground
+    },
     props: {
       msg: String
     },
     data(){
       return {
+        page:'communicate',
         mediaList:[
           {
             type:'img',
@@ -78,6 +83,7 @@
   ._block{
     width:100vw;
     display: flex;
+    flex-direction: column;
     justify-content: center;
     align-items: center;
   }

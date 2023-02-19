@@ -1,5 +1,6 @@
 <template>
   <div class="tab-container" id="tabContainer">
+    <TopBackground :page='page'></TopBackground>
     <div class="tab-item" v-for="(item, index) in list" :key="index">
       <img :src="item.Image" />
     </div>
@@ -8,9 +9,14 @@
 
 <script>
   import axios from 'axios'
+  import TopBackground from '@/components/TopBackground/index.vue'
 export default {
+  components:{
+    TopBackground
+  },
   data() {
     return {
+      page: 'technology',
       list: [],
     };
   },

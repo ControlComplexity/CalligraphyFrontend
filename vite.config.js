@@ -9,6 +9,7 @@ import viteCompression from 'vite-plugin-compression'
   
 const currentSrcPath = resolve(__dirname, 'src')
 const currentImagePath = resolve(__dirname, 'src/assets/image')
+const currentAssetPath = resolve(__dirname, 'src/assets')
 const currentComponentPath = resolve(__dirname, 'src/components')
 const currentViewComponentPath = resolve(__dirname, 'src/views')
 
@@ -17,6 +18,7 @@ export default defineConfig({
 	resolve: {
 		alias: {
 			'@': currentSrcPath,
+			'@asset':currentAssetPath,
 			'@image': currentImagePath,
 			'@component': currentComponentPath,
 			'@view': currentViewComponentPath
