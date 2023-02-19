@@ -2,7 +2,6 @@
    <div class="home5">
  <!-- <TopHyperlink></TopHyperlink> -->
  <HomeSwiper></HomeSwiper>
-
 <div>
     <input type="text" v-model="keyword" @keyup.enter="search">
     <button @click="search">点击查询</button>
@@ -21,7 +20,7 @@
 <div class="news_block">
   <div class = "title">书法教育 · 要闻</div>
   <div class="content clearfix">
-
+   
     <div class="list">
           <div class="ptbox">
             <div class="inner">

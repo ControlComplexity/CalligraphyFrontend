@@ -98,12 +98,14 @@ body {
 .nav_main_link{
   float: left;
   margin-left: 3%;
-
+  color: #fff;
 }
 .nav_block{
   display: flex;
   align-items: center;
   justify-content: space-between;
+  background: url(../../assets/head-bg.png) center repeat-x;
+    background-size: 100% 100%;
 }
 .swiper {
   width: 100%;
@@ -118,7 +120,7 @@ body {
 .swiper-slide {
   background-position: center;
   background-size: cover;
-  height: 800px;
+  height: 700px;
 }
 .nav_main{
   width: 70%;
