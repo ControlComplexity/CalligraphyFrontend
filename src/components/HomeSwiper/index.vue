@@ -1,4 +1,5 @@
 <template>
+  <div class="swiper_block">
     <swiper
       :spaceBetween="30"
       :effect="'fade'"
@@ -15,19 +16,12 @@
     >
     <swiper-slide v-for="(item, index) in list" :key="index">
      <div class="top_link" v-bind:style="{ 'background-image': 'url(' + item.URL + ')','background-repeat':'no-repeat','background-size':'cover' }" > 
-     <div class="nav_block">
-      <div class = "big_logo"><img src="../../assets/biglogo.png"></div>
-      <div class="nav_main"> 
-      <div class = "nav_main_link" ><a href="http://localhost:3001/children">少儿书法教育</a></div>
-      <div class = "nav_main_link" ><a href="http://localhost:3001/university">大学书法教育</a></div>
-      <div class = "nav_main_link" ><a href="http://localhost:3001/theory">书法教育理论</a></div>
-      <div class = "nav_main_link"><a href="http://localhost:3001/tech">科技与书法</a></div>
-      <div class = "nav_main_link" ><a href="http://localhost:3001/communicate">学习与交流</a></div>
-    </div></div>
     </div>
     <!-- <img :src="item.URL"  /> -->
     </swiper-slide>
+    <SearchEngine class="search_engine"></SearchEngine>
     </swiper>
+    </div>
   </template>
   <script>
   // Import Swiper Vue.js components
@@ -39,7 +33,7 @@
   import "swiper/css/effect-fade";
   import "swiper/css/navigation";
   import "swiper/css/pagination";
-
+  import SearchEngine from '@/components/SearchEngine/index.vue'
   import axios from 'axios'
   // import required modules
   import { EffectFade, Navigation, Pagination } from "swiper";
@@ -48,6 +42,7 @@
     components: {
       Swiper,
       SwiperSlide,
+      SearchEngine,
     },
     data() {
       return {
@@ -73,11 +68,32 @@
         });
   },
     setup() {
-      return {
-        modules: [EffectFade, Navigation, Pagination, Autoplay],
-      };
-    },
-  };
+      const search = () => {
+        let that = this
+        console.log(that.keyword)
+          axios.get("http://101.43.39.188:10000/api/theory/theory?title=" + that.keyword).
+          then(function(response){
+              if (response.status == 200){
+                  console.log(response.data.data.results)
+                  let res =[];
+                  for(var item of response.data.data.results) {
+                  res.push(item)
+                  }
+                  that.list = res
+                  that.total = response.data.data.page.total
+                  console.log("that.total: ", that.total)
+                  that.dialog_visible = true;
+            }
+          }).catch(function (error) {
+            console.log(error);
+          });
+        }
+        return {
+          search,
+          modules: [EffectFade, Navigation, Pagination, Autoplay],
+        };
+      },
+    }
   </script>
   <style scoped>
 #app { height: 100% }
@@ -91,22 +107,7 @@ body {
   position: relative;
   height: 100%;
 }
-.top_link{
-  width: 100%;
-  height: 800px;
-}
-.nav_main_link{
-  float: left;
-  margin-left: 3%;
-  color: #fff;
-}
-.nav_block{
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  background: url(../../assets/head-bg.png) center repeat-x;
-    background-size: 100% 100%;
-}
+
 .swiper {
   width: 100%;
   height: auto;
@@ -123,7 +124,8 @@ body {
   height: 700px;
 }
 .nav_main{
-  width: 70%;
+  margin-left: 10%;
+  width: 100%;
   font-family: 微软雅黑;
   font-size: 21px;
 }
@@ -132,4 +134,17 @@ body {
   width: 100%;
 }
 
+.mySwiper{
+  position: relative;
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  padding-bottom: 22px;
+}
+
+.search_engine{
+  z-index: 99999;
+  position: absolute;
+  bottom: -22px;
+}
 </style>
