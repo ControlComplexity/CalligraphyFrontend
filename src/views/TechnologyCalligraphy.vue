@@ -4,6 +4,13 @@
     <div class="tab-item" v-for="(item, index) in list" :key="index">
       <img :src="item.Image" />
     </div>
+    <div class="video_tech_block">
+    <video  style="width: 100%; height: 100%; object-fit: fill" controls loop="loop" autoplay="autoplay" muted="muted" preload="metadata"
+            poster="http://101.43.39.188/image/calligraphy/carousel/carousel3.jpg">
+            <source src="https://v.cic.tsinghua.edu.cn/vod/video/2/8/421731.mp4" type="video/mp4">
+        </video>
+    </div>
+
   </div>
 </template>
 
@@ -22,7 +29,7 @@ export default {
   },
   created(){
       let that = this
-         axios.get("http://101.43.39.188:10000/api/tech/tech")
+         axios.get("/interface/api/tech/tech")
         .then(function (response) {
           if (response.status == 200){
             console.log(response.data.data.results)
@@ -172,5 +179,8 @@ export default {
   color: #fff;
   border-radius: 8px;
   font-size: 14px;
+}
+.video_tech_block{
+  margin-top: 100px;
 }
 </style>

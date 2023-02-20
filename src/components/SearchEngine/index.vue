@@ -28,7 +28,7 @@ export default {
         search(){
             let that = this
             console.log(that.keyword)
-                axios.get("http://101.43.39.188:10000/api/theory/theory?title=" + that.keyword).
+                axios.get("/interface/api/theory/theory?title=" + that.keyword).
                 then(function(response){
                     if (response.status == 200){
                         console.log(response.data.data.results)

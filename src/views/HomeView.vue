@@ -28,8 +28,8 @@
               </div>
             </div>
             <div class="text">
-            <a target="_blank" href="https://news.pku.edu.cn/esdzt/">
-                  <div style="font-size: 18px;">党建活动网站</div>
+            <a target="_blank" :href="essay[0].URL">
+                  <div style="font-size: 18px;">{{essay[0].Title}}</div>
                 </a>
             </div>
           </div></div> 
@@ -37,15 +37,83 @@
           <div class="item">
             <a target="_blank" href="https://news.pku.edu.cn/xwzh/fabef6fd1e9b4f82b8026ea061160485.htm">
               <div class="text">
-                <div class="h">文化情缘|温故知新</div>
+                <div class="h">{{essay[1].Title}}</div>
               </div>
           </a>
           </div>
-          <div class="item"></div>
-          <div class="item"></div>
-          <div class="item"></div>
+          <div class="item">
+            <a target="_blank" href="https://news.pku.edu.cn/xwzh/fabef6fd1e9b4f82b8026ea061160485.htm">
+              <div class="text">
+                <div class="h">{{essay[2].Title}}</div>
+              </div>
+          </a>
+          </div>
+          <div class="item">
+            <a target="_blank" href="https://news.pku.edu.cn/xwzh/fabef6fd1e9b4f82b8026ea061160485.htm">
+              <div class="text">
+                <div class="h">{{essay[3].Title}}</div>
+              </div>
+          </a>
+          </div>
+          <div class="item">
+            <a target="_blank" href="https://news.pku.edu.cn/xwzh/fabef6fd1e9b4f82b8026ea061160485.htm">
+              <div class="text">
+                <div class="h">{{essay[4].Title}}</div>
+              </div>
+          </a>
+          </div>
         </div>
         </div>
+
+         
+    <div class="list">
+
+      <div class="box">
+          <div class="item">
+            <a target="_blank" href="https://news.pku.edu.cn/xwzh/fabef6fd1e9b4f82b8026ea061160485.htm">
+              <div class="text">
+                <div class="h">{{essay[5].Title}}</div>
+              </div>
+          </a>
+          </div>
+          <div class="item">
+            <a target="_blank" href="https://news.pku.edu.cn/xwzh/fabef6fd1e9b4f82b8026ea061160485.htm">
+              <div class="text">
+                <div class="h">{{essay[6].Title}}</div>
+              </div>
+          </a>
+          </div>
+          <div class="item">
+            <a target="_blank" href="https://news.pku.edu.cn/xwzh/fabef6fd1e9b4f82b8026ea061160485.htm">
+              <div class="text">
+                <div class="h">{{essay[7].Title}}</div>
+              </div>
+          </a>
+          </div>
+          <div class="item">
+            <a target="_blank" href="https://news.pku.edu.cn/xwzh/fabef6fd1e9b4f82b8026ea061160485.htm">
+              <div class="text">
+                <div class="h">{{essay[8].Title}}</div>
+              </div>
+          </a>
+          </div>
+        </div>
+        
+          <div class="ptbox">
+            <div class="inner">
+            <div class="pic"> 
+              <div class="img" style="background-image:url(https://news.pku.edu.cn/esdzt/images/2022-12/ed9ad90437674658ad25941be829ade1.jpeg);">
+              </div>
+            </div>
+            <div class="text">
+            <a target="_blank" href="https://news.pku.edu.cn/esdzt/">
+                  <div style="font-size: 18px;">{{essay[9].Title}}</div>
+                </a>
+            </div>
+          </div></div> 
+       
+        </div>
+
 </div>
 </div>
  <SearchResult  v-show="dialog_visible" 
@@ -76,12 +144,25 @@ export default {
   methods:{
 
 },
-
+created(){
+  let that = this
+         axios.get("/interface/api/news/news?limit=10&page=1")
+        .then(function (response) {
+          if (response.status == 200){
+            that.essay = response.data.data.results
+          }
+          console.log("that.essay: ",   that.essay)
+        })
+        .catch(function (error) {
+          console.log(error);
+        });
+},
 data() {
     return {
       // 控制子组件显示与隐藏的标识，类型为Boolean
       dialog_visible: false,
       keyword: "",
+      essay: [],
     }
   },
   }
@@ -180,8 +261,46 @@ a{
     width: 100%;
     height: 100%;
 }
+.item:nth-child(2):before {
+    content: "";
+    background: url(../assets/svg/bg9a.svg) right bottom no-repeat;
+    background-size: contain;
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+}
+
+.item:nth-child(3):before {
+    content: "";
+    background: url(../assets/svg/bg9a.svg) right bottom no-repeat;
+    background-size: contain;
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+}
+
+.item:nth-child(4):before {
+    content: "";
+    background: url(../assets/svg/bg9a.svg) right bottom no-repeat;
+    background-size: contain;
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+}
+
+
 .home5 {
     background: #efebea;
 }
 
+.title{
+  font-family: 微软雅黑;
+  font-size: 50px;
+}
 </style>

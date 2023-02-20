@@ -1,6 +1,7 @@
 <template>
     <div class="root">
         <img class="image" v-show="currentImage" :style="{backgroundImage:`url(${currentImage?.src})`}">
+        <div class="liner_bottom"></div>
     </div>
 </template>
    
@@ -47,7 +48,7 @@
                 currentImage:{}
             })
             watch(()=> proxy.page,(nval,oval)=>{
-                console.log(nval,'值發生變化')
+                console.log(nval,'值发生变化')
                 state.imageList.forEach(v => {
                     if(v.page == proxy.page) state.currentImage = v
                 })
@@ -67,6 +68,7 @@
     .root{
         width: 100vw;
         height: 500px;
+        position: relative;
     }
     .image{
         width: 100vw;
@@ -74,5 +76,14 @@
         background-repeat: no-repeat;
         background-position: center;
         background-size: 100%;
+        box-shadow:  inset    0px 10px 10px rgb(7, 7, 7);
+    }
+    .liner_bottom{
+        width:100%;
+        height: 10%;
+        background:linear-gradient(to top,black,rgba(255,0,0,0));
+        position:absolute;
+        bottom:0;
+        
     }
 </style>

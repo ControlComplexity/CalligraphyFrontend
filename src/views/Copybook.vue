@@ -44,7 +44,7 @@ import axios from 'axios'
   },
   created(){
       let that = this
-         axios.get("http://101.43.39.188:10000/api/carousel/carousels")
+         axios.get("/interface/api/carousel/carousels")
         .then(function (response) {
           if (response.status == 200){
             console.log(response.data.data.results,'shuchu')

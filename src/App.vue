@@ -36,12 +36,12 @@
       </div>
 
       <div class="nav_main"> 
-        <div class = "nav_main_link" ><a href="http://localhost:3001">首页</a></div>
-      <div class = "nav_main_link" ><a href="http://localhost:3001/children">少儿书法教育</a></div>
-      <div class = "nav_main_link" ><a href="http://localhost:3001/university">大学书法教育</a></div>
-      <div class = "nav_main_link" ><a href="http://localhost:3001/theory">书法教育理论</a></div>
-      <div class = "nav_main_link"><a href="http://localhost:3001/tech">科技与书法</a></div>
-      <div class = "nav_main_link" ><a href="http://localhost:3001/communicate">书法课堂 </a></div>
+        <div class = "nav_main_link" ><a href="/">首页</a></div>
+      <div class = "nav_main_link" ><a href="/children">少儿书法教育</a></div>
+      <div class = "nav_main_link" ><a href="/university">大学书法教育</a></div>
+      <div class = "nav_main_link" ><a href="/theory">书法教育理论</a></div>
+      <div class = "nav_main_link"><a href="/tech">科技与书法</a></div>
+      <div class = "nav_main_link" ><a href="/communicate">书法课堂 </a></div>
     </div>
       </div></div>
   <router-view/>
@@ -89,7 +89,7 @@ body{
 
 .link{
   color: #fff;
-   margin-left: 30px;
+   margin-left: 20px;
    font-size: 0.18rem;
    cursor: pointer;
   font: "SourceSansPro-Regular";
@@ -99,6 +99,7 @@ body{
   height: 800px;
 }
 .nav_left{
+  height: 40px;
   color: #fff;
 }
 .nav_main_link{
