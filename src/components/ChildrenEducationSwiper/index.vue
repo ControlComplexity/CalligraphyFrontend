@@ -8,29 +8,17 @@
       </div>
 
       <div class="act_block">
-        <div style="float: left;">
-          <div class="arrowL" style="float: left;" @click="otherPage('left')">
-            <div class="line"></div>
-            <div class="line2"></div>
-          </div>
-          <div class="arrowR" style="float: left;margin-left:100px" @click="otherPage('right')">
-            <div class="line"></div>
-            <div class="line2"></div>
-          </div>
+        <div class="arrow">
+          <a href="" class="prev"></a>
+          <a href="" class="next"></a>
         </div>
-        <!-- <span class="prev" @click="otherPage('left')">←</span>
-          <span class="next" @click="otherPage('right')">→</span> -->
       </div>
     </div>
     <div style="width: 100%;height: 200px;">
-      <swiper  :loop="true"
-       :autoplay="{
+      <swiper :loop="true" :autoplay="{
         delay: 2500,
         disableOnInteraction: false,
-      }"
-       :slidesPerView="4"
-        :spaceBetween="20" 
-        :pagination="{
+      }" :slidesPerView="4" :spaceBetween="20" :pagination="{
   clickable: true
 }" :mousewheel="true" :modules="modules" class="mySwiper" ref="mySwiper">
         <swiper-slide v-for="(item, index) in list" :key="index">
@@ -46,9 +34,7 @@ import { Swiper, SwiperSlide } from 'swiper/vue';
 import { Autoplay } from 'swiper';
 // Import Swiper styles
 import 'swiper/css';
-
 import 'swiper/css/pagination';
-
 import './style.css';
 
 // import required modules
@@ -139,13 +125,15 @@ export default MySwiper
   align-items: center;
   user-select: none;
 }
-.more{
+
+.more {
   margin-left: 10px;
   display: flex;
   color: #ADADAD;
   align-items: center;
   font-size: 13;
 }
+
 .prev,
 .next {
   font-size: 25px;
@@ -175,15 +163,17 @@ export default MySwiper
 }
 
 .arrowL {
-  width: 35px;
-  height: 35px;
-  border: .1px solid purple;
+  width: 100px;
+  height: 100px;
+  border: 2px solid purple;
   border-radius: 50%;
-  transition: all .09s ease;
+  transition: all .38s ease;
+  opacity: .3;
 }
 
 .arrowL:hover {
-  border: 1px solid purple;
+  /* border: 3px solid purple; */
+  opacity: 1;
 }
 
 .arrowL .line {
@@ -198,7 +188,7 @@ export default MySwiper
   width: 31%;
   border: 1px solid purple;
   position: relative;
-  top: 29%;
+  top: 34.7%;
   transform: rotate(120deg);
   left: 42%;
 }
@@ -207,15 +197,17 @@ export default MySwiper
 
 
 .arrowR {
-  width: 35px;
-  height: 35px;
-  border: .5px solid purple;
+  width: 100px;
+  height: 100px;
+  border: 1px solid purple;
   border-radius: 50%;
   transition: all;
+  opacity: .3;
 }
 
 .arrowR:hover {
-  border: 3px solid purple;
+  /* border: 3px solid purple; */
+  opacity: 1;
 }
 
 .arrowR .line {
@@ -230,8 +222,46 @@ export default MySwiper
   width: 31%;
   border: 1px solid purple;
   position: relative;
-  top: 34%;
+  top: 36.7%;
   transform: rotate(45deg);
   left: 24%;
+}
+
+.arrow {
+  display: flex;
+  transition: all .5s ease;
+  background: center no-repeat;
+
+}
+
+.arrow a.prev {
+  background-image: url('./images/prev53.png');
+  width: 2rem;
+  height: 2rem;
+  background-size: 100%;
+  border: 1px solid purple;
+  border-radius: 50%;
+  opacity: .3;
+  transition: all 1s ease;
+}
+
+.arrow a.prev:hover {
+  opacity: 1;
+}
+
+.arrow a.next {
+  margin-left: 5%;
+  background-image: url('./images/next53.png');
+  width: 2rem;
+  height: 2rem;
+  background-size: 100%;
+  border: 1px solid purple;
+  border-radius: 50%;
+  opacity: .3;
+  transition: all 1s ease;
+}
+
+.arrow a.next:hover {
+  opacity: 1;
 }
 </style>

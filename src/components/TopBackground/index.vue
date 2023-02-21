@@ -34,7 +34,7 @@
                     },
                     {
                         page:'technology',
-                        src:'assets/technology/technology_top.jpeg'
+                        src:'src/assets/technology/technology_top.jpeg'
                     },
                     {
                         page:'theory',

@@ -1,21 +1,7 @@
 <template>
    <div class="home5">
- <!-- <TopHyperlink></TopHyperlink> -->
  <HomeSwiper></HomeSwiper>
-<!-- <div>
-    <input type="text" v-model="keyword" @keyup.enter="search">
-    <button @click="search">点击查询</button>
-</div> -->
-<!-- <div>
- <div>
-高频搜索内容 
-<a href="https://www.baidu.com">天下十大行书</a>&nbsp;
-<a href="https://www.baidu.com">王羲之</a>&nbsp;
-<a href="https://www.baidu.com">颜真卿</a>&nbsp;
-<a href="https://www.baidu.com">启功</a>&nbsp;
-<a href="https://www.baidu.com">欧阳询</a>
-</div>
-</div> -->
+
 <div class="news_block">
  <div class="news_title_block"> <div class = "title">书法教育 · 要闻</div>
   <div class="news_link" style="margin-left: 20px; color: #ADADAD;"><a href="/news">更多</a></div>

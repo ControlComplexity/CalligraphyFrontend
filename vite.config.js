@@ -6,7 +6,7 @@ import supportVue from '@vitejs/plugin-vue'
 import { resolve } from 'path'
 //__dirname是系统变量,返回的是当前项目的目录
 import viteCompression from 'vite-plugin-compression'
-  
+
 const currentSrcPath = resolve(__dirname, 'src')
 const currentImagePath = resolve(__dirname, 'src/assets/image')
 const currentAssetPath = resolve(__dirname, 'src/assets')
@@ -18,14 +18,14 @@ export default defineConfig({
 	resolve: {
 		alias: {
 			'@': currentSrcPath,
-			'@asset':currentAssetPath,
+			'@asset': currentAssetPath,
 			'@image': currentImagePath,
 			'@component': currentComponentPath,
 			'@view': currentViewComponentPath
 		}
 	},
-	productionSourceMap:false,
-	productionGzip:true,
+	productionSourceMap: false,
+	productionGzip: true,
 	optimizeDeps: {
 		//include:[]
 		inclue: ['axios', 'mockjs', 'lodash', 'echarts']
@@ -35,10 +35,24 @@ export default defineConfig({
 		outDir: 'dist',
 		assetsDir: 'static',
 		minify: 'terser',
+		terserOptions: {
+			compress: {
+				drop_console: true,
+				drop_debugger: true,
+			},
+		},
 		output: {
 			comments: true,
+		},
+		rollupOptions: {
+			output: {
+				chunkFileNames: 'static/js/[name]-[hash].js',
+				entryFileNames: 'static/js/[name]-[hash].js',
+				assetFileNames: 'static/assets/[name]-[hash].[ext]',
+			}
 		}
 	},
+
 	server: {
 		port: 3001,
 		cors: true,

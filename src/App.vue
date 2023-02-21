@@ -34,7 +34,6 @@
       <a class="link" href="https://www.yac8.com/">书法欣赏</a>
       <a class="link" href="https://www.yac8.com/">书法欣赏</a>
       </div>
-
       <div class="nav_main"> 
         <div class = "nav_main_link" ><a href="/">首页</a></div>
       <div class = "nav_main_link" ><a href="/children">少儿书法教育</a></div>
@@ -43,6 +42,7 @@
       <div class = "nav_main_link"><a href="/tech">科技与书法</a></div>
       <div class = "nav_main_link" ><a href="/communicate">书法课堂 </a></div>
     </div>
+
       </div></div>
   <router-view/>
 </template>
