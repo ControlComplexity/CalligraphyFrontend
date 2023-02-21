@@ -17,19 +17,19 @@
 </div>
 </div> -->
 <div class="news_block">
-  <div class = "title">书法教育 · 要闻</div>
+ <div class="news_title_block"> <div class = "title">书法教育 · 要闻</div>
+  <div class="news_link" style="margin-left: 20px; color: #ADADAD;"><a href="/news">更多</a></div>
+</div>
   <div class="content clearfix">
-   
     <div class="list">
           <div class="ptbox">
             <div class="inner">
             <div class="pic"> 
-              <div class="img" style="background-image:url(https://news.pku.edu.cn/esdzt/images/2022-12/ed9ad90437674658ad25941be829ade1.jpeg);">
-              </div>
+              <img :src="essay[0]?essay[0].Image:''" alt="">
             </div>
             <div class="text">
-            <a target="_blank" :href="essay[0].URL">
-                  <div style="font-size: 18px;">{{essay[0].Title}}</div>
+            <a target="_blank" :href="essay[0]?essay[0].URL:''">
+                  <div style="font-size: 18px;">{{essay[0]?essay[0].Title:''}}</div>
                 </a>
             </div>
           </div></div> 
@@ -37,28 +37,28 @@
           <div class="item">
             <a target="_blank" href="https://news.pku.edu.cn/xwzh/fabef6fd1e9b4f82b8026ea061160485.htm">
               <div class="text">
-                <div class="h">{{essay[1].Title}}</div>
+                <div class="h">{{essay[1]?essay[1].Title:''}}</div>
               </div>
           </a>
           </div>
           <div class="item">
             <a target="_blank" href="https://news.pku.edu.cn/xwzh/fabef6fd1e9b4f82b8026ea061160485.htm">
               <div class="text">
-                <div class="h">{{essay[2].Title}}</div>
+                <div class="h">{{essay[2]?essay[2].Title:''}}</div>
               </div>
           </a>
           </div>
           <div class="item">
             <a target="_blank" href="https://news.pku.edu.cn/xwzh/fabef6fd1e9b4f82b8026ea061160485.htm">
               <div class="text">
-                <div class="h">{{essay[3].Title}}</div>
+                <div class="h">{{essay[3]?essay[3].Title:''}}</div>
               </div>
           </a>
           </div>
           <div class="item">
             <a target="_blank" href="https://news.pku.edu.cn/xwzh/fabef6fd1e9b4f82b8026ea061160485.htm">
               <div class="text">
-                <div class="h">{{essay[4].Title}}</div>
+                <div class="h">{{essay[4]?essay[4].Title:''}}</div>
               </div>
           </a>
           </div>
@@ -72,28 +72,28 @@
           <div class="item">
             <a target="_blank" href="https://news.pku.edu.cn/xwzh/fabef6fd1e9b4f82b8026ea061160485.htm">
               <div class="text">
-                <div class="h">{{essay[5].Title}}</div>
+                <div class="h">{{essay[5]?essay[5].Title:''}}</div>
               </div>
           </a>
           </div>
           <div class="item">
             <a target="_blank" href="https://news.pku.edu.cn/xwzh/fabef6fd1e9b4f82b8026ea061160485.htm">
               <div class="text">
-                <div class="h">{{essay[6].Title}}</div>
+                <div class="h">{{essay[6]?essay[6].Title:''}}</div>
               </div>
           </a>
           </div>
           <div class="item">
             <a target="_blank" href="https://news.pku.edu.cn/xwzh/fabef6fd1e9b4f82b8026ea061160485.htm">
               <div class="text">
-                <div class="h">{{essay[7].Title}}</div>
+                <div class="h">{{essay[7]?essay[7].Title:''}}</div>
               </div>
           </a>
           </div>
           <div class="item">
             <a target="_blank" href="https://news.pku.edu.cn/xwzh/fabef6fd1e9b4f82b8026ea061160485.htm">
               <div class="text">
-                <div class="h">{{essay[8].Title}}</div>
+                <div class="h">{{essay[8]?essay[8].Title:''}}</div>
               </div>
           </a>
           </div>
@@ -107,7 +107,7 @@
             </div>
             <div class="text">
             <a target="_blank" href="https://news.pku.edu.cn/esdzt/">
-                  <div style="font-size: 18px;">{{essay[9].Title}}</div>
+                  <div style="font-size: 18px;">{{essay[9]?essay[9].Title:''}}</div>
                 </a>
             </div>
           </div></div> 
@@ -209,6 +209,11 @@ data() {
     background-size: cover;
     transition: all 0.3s ease-out 0s;
 }
+.news_title_block{
+  margin-left: 15%;
+  align-items: center;
+  display: flex;
+}
 
  .text .h {
     font-size: 16px;
@@ -301,6 +306,9 @@ a{
 
 .title{
   font-family: 微软雅黑;
-  font-size: 50px;
+  font-size: 30px;
+}
+.news_link :hover{
+  color: #94070a;
 }
 </style>

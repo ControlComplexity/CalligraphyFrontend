@@ -26,23 +26,23 @@
                 imageList:[
                     {
                         page:'children_education',
-                        src:'src/assets/children/children_top.jpeg'
+                        src:'../../src/assets/children/children_top.jpeg'
                     },
                     {
                         page:'university_education',
-                        src:'src/assets/university/university_top.jpg'
+                        src:'../src/assets/university/university_top.jpg'
                     },
                     {
                         page:'technology',
-                        src:'src/assets/technology/technology_top.jpeg'
+                        src:'assets/technology/technology_top.jpeg'
                     },
                     {
                         page:'theory',
-                        src:'src/assets/theory/theory_top.jpeg'
+                        src:'src/assets/theory/theory_top.jpg'
                     },
                     {
                         page:'communicate',
-                        src:'src/assets/communicate/communicate_top.jpg'
+                        src:'src/assets/communicate/tianyingzhang_regular_top.png'
                     }
                 ],
                 currentImage:{}

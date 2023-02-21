@@ -41,7 +41,7 @@ const routes = [
   {
     path: '/communicate',
     name: 'communicate',
-    component: () => import(/* webpackChunkName: "about" */ '../views/Communicate.vue')
+    component: () => import(/* webpackChunkName: "about" */ '../views/CalligraphyClass.vue')
   },
   {
     name: 'theoryDetail', // 命名路由
@@ -57,6 +57,62 @@ const routes = [
     name: 'login', // 命名路由
     path: '/login', // 动态二级路由
     component: Login
+  },
+  {
+    name: 'news', // 命名路由
+    path: '/news', // 动态二级路由
+    component: () => import(/* webpackChunkName: "about" */ '../views/News.vue')
+  },
+  {
+    name: 'classes/hard_regular', // 命名路由
+    path: '/classes/hard_regular', // 动态二级路由
+    component: () => import(/* webpackChunkName: "about" */ '@/components/classes/HardRegular.vue')
+  }
+  ,
+  {
+    name: 'classes/hard_running', // 命名路由
+    path: '/classes/hard_running', // 动态二级路由
+    component: () => import(/* webpackChunkName: "about" */ '@/components/classes/HardRunningScript.vue')
+  }
+  ,
+  {
+    name: 'classes/ouyangxun_regular', // 命名路由
+    path: '/classes/ouyangxun_regular', // 动态二级路由
+    component: () => import(/* webpackChunkName: "about" */ '@/components/classes/OuyangxunRegular.vue')
+  }
+  ,
+  {
+    name: 'classes/yanzhenqing_regular', // 命名路由
+    path: '/classes/yanzhenqing_regular', // 动态二级路由
+    component: () => import(/* webpackChunkName: "about" */ '@/components/classes/YanzhenqingRegular.vue')
+  }
+  ,
+  {
+    name: 'classes/soft_running', // 命名路由
+    path: '/classes/soft_running', // 动态二级路由
+    component: () => import(/* webpackChunkName: "about" */ '@/components/classes/SoftRunningScript.vue')
+  }
+  ,
+  {
+    name: 'classes/soft_official', // 命名路由
+    path: '/classes/soft_official', // 动态二级路由
+    component: () => import(/* webpackChunkName: "about" */ '@/components/classes/OfficialScript.vue')
+  }
+  ,
+  {
+    name: 'classes/soft_seal', // 命名路由
+    path: '/classes/soft_seal', // 动态二级路由
+    component: () => import(/* webpackChunkName: "about" */ '@/components/classes/SealScript.vue')
+  },
+  {
+    name: 'classes/soft_cursive', // 命名路由
+    path: '/classes/soft_cursive', // 动态二级路由
+    component: () => import(/* webpackChunkName: "about" */ '@/components/classes/SoftCursive.vue')
+  },
+  {
+    name: 'classes/seal_cutting', // 命名路由
+    path: '/classes/seal_cutting', // 动态二级路由
+    component: () => import(/* webpackChunkName: "about" */ '@/components/classes/SealCutting.vue')
   }
 ]
 

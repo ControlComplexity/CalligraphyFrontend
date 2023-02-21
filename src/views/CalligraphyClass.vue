@@ -1,13 +1,12 @@
 <template>
   <div class="_block">
     <TopBackground :page="page"></TopBackground>
-    <div class="media_block">
-      <div class="media" v-for="(media,i) in mediaList" :key="i">
-        <div class="image" :style="{backgroundImage:`url(${media.src})`}">
+    <div class="classes_block">
+      <div class="classes" v-for="(classes,i) in classesList" :key="i">
+        <div class="image" :style="{backgroundImage:`url(${classes.src})`}" @click="calligraphyClasses(classes.en)">
           <div class="desc_block">
             <div class="desc">
-              <span style="background-color:#eee;">{{media.label}}</span>
-              <span>{{media.desc}}</span>
+              <span>{{classes.desc}}</span>
             </div>
           </div>
         </div>
@@ -28,50 +27,88 @@
     props: {
       msg: String
     },
+    methods:{
+      calligraphyClasses(category) {
+       console.log(category)
+       this.$router.push({
+        name: 'classes/' + category,
+      })
+    },
+    },
     data(){
       return {
         page:'communicate',
-        mediaList:[
+        classesList:[
           {
             type:'img',
             src:'http://101.43.39.188/image/calligraphy/carousel/carousel3.jpg',
             label:'图片',
-            desc:'这是一段描述文字',
+            desc:'硬笔楷书',
+            en: "hard_regular",
+            link:''
+          },
+          {
+            type:'img',
+            src:'http://101.43.39.188/image/calligraphy/carousel/carousel3.jpg',
+            label:'图片',
+            desc:'硬笔行书',
+            en: "hard_running",
             link:''
           },
           {
             type:'img',
             src:'http://101.43.39.188/image/calligraphy/carousel/carousel3.jpg',
             label:'图片2',
-            desc:'这是一段描述文字2',
+            desc:'欧楷',
+            en: "ouyangxun_regular",
             link:''
           },
           {
             type:'img',
-            src:'http://101.43.39.188/image/calligraphy/carousel/carousel3.jpg',
+            src:'http://101.43.39.188/image/calligraphy/carousel/carousel2.jpg',
             label:'图片2',
-            desc:'这是一段描述文字2',
+            desc:'颜楷',
+            en: "yanzhenqing_regular",
             link:''
           },
           {
             type:'img',
-            src:'http://101.43.39.188/image/calligraphy/carousel/carousel3.jpg',
+            src:'http://101.43.39.188/image/calligraphy/carousel/carousel6.jpg',
             label:'图片2',
-            desc:'这是一段描述文字2',
+            desc:'毛笔行书',
+            en: "soft_running",
             link:''
           },
           {
             type:'img',
-            src:'http://101.43.39.188/image/calligraphy/carousel/carousel3.jpg',
+            src:'http://101.43.39.188/image/calligraphy/carousel/carousel6.jpg',
             label:'图片2',
-            desc:'这是一段描述文字2',
+            desc:'隶书',
+            en: "soft_official",
             link:''
           },
           {
             type:'img',
-            src:'http://101.43.39.188/image/calligraphy/carousel/carousel3.jpg',
+            src:'http://101.43.39.188/image/calligraphy/carousel/carousel2.jpg',
             label:'图片2',
-            desc:'这是一段描述文字2',
+            desc:'篆书',
+            en: "soft_seal",
+            link:''
+          },
+          {
+            type:'img',
+            src:'http://101.43.39.188/image/calligraphy/carousel/carousel5.jpg',
+            label:'图片2',
+            desc:'草书',
+            en: "soft_cursive",
+            link:''
+          },
+          {
+            type:'img',
+            src:'http://101.43.39.188/image/calligraphy/carousel/carousel4.jpg',
+            label:'图片2',
+            desc:'篆刻',
+            en: "seal_cutting",
             link:''
           }
         ]
@@ -87,22 +124,20 @@
     justify-content: center;
     align-items: center;
   }
-  .media_block{
+  .classes_block{
     margin: 10px;
-    width: 80vw;
-    height: 500px;
+    width: 90vw;
+    height: 600px;
     display: flex;
     justify-content: center;
     flex-wrap: wrap;
     flex-direction: cloumn;
     align-items: center;
-    background-color: #efaefa;
   }
-  .media{
+  .classes{
     position: relative;
     width: 30%;
     height: calc(50% - 20px);
-    background-color: #efa;
     margin: 5px;
   }
   .image{
@@ -113,11 +148,11 @@
     background-position: center;
     transition: background-size ease-in .5s;
   }
-  .media:hover .image{
+  .classes:hover .image{
     background-size: 120%;
   }
   .desc_block{
-    top: 0;
+    margin-top: -30px;
     position: absolute;
     width: 100%;
     height: 100%;
@@ -130,5 +165,7 @@
     flex-direction: column;
     align-items: flex-start;
     justify-content: center;
+    color: aliceblue;
+    font-size: large;
   }
 </style>
