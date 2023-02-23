@@ -1,14 +1,16 @@
 <template>
 <div>
-  <div class="contentContainer"> 
 <div id="content">           
  <h2>{{essay.Title}}</h2>
 </div>
-</div>
-<div class="contentContainer"> 
 <div id="content">           
  {{essay.Content}}
 </div>
+<div id="content">           
+ {{essay.Hits}}
+</div>
+<div id="content">           
+ {{essay.Like}}
 </div>
 </div>
  </template>
@@ -23,7 +25,7 @@
  }
 </style>
 
-<script>
+<script lang="js">
 // 文章详情
 import axios from 'axios'
 export default {

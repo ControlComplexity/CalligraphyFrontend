@@ -31,13 +31,14 @@ export default defineConfig({
 		inclue: ['axios', 'mockjs', 'lodash', 'echarts']
 	},
 	build: {
-		target: 'modules',
+		assetsPublicPath: './',
+		// target: 'modules',
 		outDir: 'dist',
 		assetsDir: 'static',
-		minify: 'terser',
+		// minify: 'terser',
 		terserOptions: {
 			compress: {
-				drop_console: true,
+				drop_console: false,
 				drop_debugger: true,
 			},
 		},
@@ -48,7 +49,7 @@ export default defineConfig({
 			output: {
 				chunkFileNames: 'static/js/[name]-[hash].js',
 				entryFileNames: 'static/js/[name]-[hash].js',
-				assetFileNames: 'static/assets/[name]-[hash].[ext]',
+				// assetFileNames: 'static/assets/[name]-[hash].[ext]',
 			}
 		}
 	},

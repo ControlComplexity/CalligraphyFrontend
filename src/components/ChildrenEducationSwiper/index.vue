@@ -6,7 +6,6 @@
         <h2>教育看点</h2>
         <div class="more"> | &nbsp; &nbsp;<a>更多</a> &nbsp;&nbsp;> </div>
       </div>
-
       <div class="act_block">
         <div class="arrow">
           <a href="" class="prev"></a>
@@ -14,13 +13,21 @@
         </div>
       </div>
     </div>
-    <div style="width: 100%;height: 200px;">
-      <swiper :loop="true" :autoplay="{
+    <div style="width: 100%;height: 280px;">
+      <swiper 
+      :loop="true" 
+      :autoplay="{
         delay: 2500,
         disableOnInteraction: false,
-      }" :slidesPerView="4" :spaceBetween="20" :pagination="{
-  clickable: true
-}" :mousewheel="true" :modules="modules" class="mySwiper" ref="mySwiper">
+      }" 
+      :slidesPerView="4" 
+      :spaceBetween="20"
+       :pagination="{
+     clickable: true
+       }" 
+       :mousewheel="true" 
+       :modules="modules" 
+       class="mySwiper" ref="mySwiper">
         <swiper-slide v-for="(item, index) in list" :key="index">
           <div><img :src='item.URL'></div>
         </swiper-slide>
@@ -31,14 +38,17 @@
 <script>
 // Import Swiper Vue.js components
 import { Swiper, SwiperSlide } from 'swiper/vue';
-import { Autoplay } from 'swiper';
+import { Autoplay,Pagination } from 'swiper';
+
+
 // Import Swiper styles
 import 'swiper/css';
 import 'swiper/css/pagination';
+import 'swiper/css/navigation';
 import './style.css';
 
 // import required modules
-import { Pagination } from 'swiper';
+
 import 'video.js/dist/video-js.css'
 import axios from 'axios';
 const MySwiper = {
